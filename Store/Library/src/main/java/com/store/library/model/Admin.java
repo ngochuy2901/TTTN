@@ -16,10 +16,10 @@ public class Admin {
     private Long id;
     private String firstName;
     private String lastName;
-    private String usename;
+    private String username;
     private String password;
     @Lob
-    @Column(columnDefinition = "MEDIUMLOB")
+    @Column(columnDefinition = "MEDIUMBLOB")
     private String image;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "admins_roles", joinColumns = @JoinColumn(name ="admin_id", referencedColumnName = "admin_id"),
