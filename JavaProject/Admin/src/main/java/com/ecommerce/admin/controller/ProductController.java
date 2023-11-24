@@ -44,7 +44,7 @@ public class ProductController {
             return "redirect:/login";
         }
         Page<ProductDto> products = productService.getAllProducts(pageNo);
-        model.addAttribute("title", "Manage Products");
+        model.addAttribute("title", "Quản lý sản phẩm");
         model.addAttribute("size", products.getSize());
         model.addAttribute("products", products);
         model.addAttribute("currentPage", pageNo);
@@ -61,7 +61,7 @@ public class ProductController {
             return "redirect:/login";
         }
         Page<ProductDto> products = productService.searchProducts(pageNo, keyword);
-        model.addAttribute("title", "Result Search Products");
+        model.addAttribute("title", "Tìm kiếm sản phẩm");
         model.addAttribute("size", products.getSize());
         model.addAttribute("products", products);
         model.addAttribute("currentPage", pageNo);
@@ -75,7 +75,7 @@ public class ProductController {
         if (principal == null) {
             return "redirect:/login";
         }
-        model.addAttribute("title", "Add Product");
+        model.addAttribute("title", "Thêm sản phẩm");
         List<Category> categories = categoryService.findAllByActivatedTrue();
         model.addAttribute("categories", categories);
         model.addAttribute("productDto", new ProductDto());
@@ -91,10 +91,10 @@ public class ProductController {
                 return "redirect:/login";
             }
             productService.save(imageProduct, product);
-            redirectAttributes.addFlashAttribute("success", "Add new product successfully!");
+            redirectAttributes.addFlashAttribute("success", "Thêm thành công!");
         } catch (Exception e) {
             e.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Failed to add new product!");
+            redirectAttributes.addFlashAttribute("error", "Không thể thêm sản phẩm!");
         }
         return "redirect:/products/0";
     }
@@ -121,10 +121,10 @@ public class ProductController {
                 return "redirect:/login";
             }
             productService.update(imageProduct, productDto);
-            redirectAttributes.addFlashAttribute("success", "Update successfully!");
+            redirectAttributes.addFlashAttribute("success", "Cập nhật thành công!");
         } catch (Exception e) {
             e.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Error server, please try again!");
+            redirectAttributes.addFlashAttribute("error", "Error server!");
         }
         return "redirect:/products/0";
     }
@@ -151,10 +151,10 @@ public class ProductController {
                 return "redirect:/login";
             }
             productService.deleteById(id);
-            redirectAttributes.addFlashAttribute("success", "Deleted successfully!");
+            redirectAttributes.addFlashAttribute("success", "Xóa thành công!");
         } catch (Exception e) {
             e.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Deleted failed!");
+            redirectAttributes.addFlashAttribute("error", "Không thể xóa sản phẩm!");
         }
         return "redirect:/products/0";
     }

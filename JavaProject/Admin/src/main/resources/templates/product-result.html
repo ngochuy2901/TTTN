@@ -30,12 +30,12 @@
                 <div class="container-fluid">
                     <div class="input-group" style="width: 30%; margin-bottom: 20px;">
                         <form th:action = "@{/search-products/0}" method = "get">
-                            <input type="text" class="form-control rounded" placeholder="Search" name = "keyword" aria-label="Search"
+                            <input type="text" class="form-control rounded" placeholder="Tìm sản phẩm" name = "keyword" aria-label="Search"
                                    aria-describedby="search-addon" />
-                            <button type="submit" class="btn btn-outline-primary">search</button>
+                            <button type="submit" class="btn btn-outline-primary">Tìm kiếm</button>
                         </form>
                     </div>
-                    <a th:href="@{/add-product}" class = "btn btn-primary">Add Product</a>
+                    <a th:href="@{/add-product}" class = "btn btn-primary">Thêm sản phầm</a>
                     <p th:if="${size == 0} ">No Products</p>
                     <div th:if = "${success}" class = "text-center alert alert-success">
                         <p th:text = "${success}"></p>
@@ -46,13 +46,13 @@
                     <table class="table table-bordered" th:if = "${size > 0}">
                         <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Update</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Tên</th>
+                            <th scope="col">Danh mục</th>
+                            <th scope="col">Giá</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Ảnh</th>
+                            <th scope="col">Cập nhật</th>
+                            <th scope="col">Hành động</th>
                         </tr>
                         </thead>
                         <tbody>

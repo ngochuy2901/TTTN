@@ -28,13 +28,6 @@
 <div th:replace="~{fragments::top-search}">
 </div>
 <!-- End Top Search -->
-
-
-<!-- Start All Title Box -->
-<div th:replace="~{fragments::all-title-box}">
-</div>
-<!-- End All Title Box -->
-
 <!-- Start Shop Page  -->
 <div class="shop-box-inner">
     <div class="container">
@@ -145,7 +138,7 @@
                     </div>
                     <div class="filter-sidebar-left">
                         <div class="title-left">
-                            <h3>Categories</h3>
+                            <h3>Danh mục</h3>
                         </div>
                         <div class="list-group list-group-collapse list-group-sm list-group-tree"
                              id="list-group-men" data-children=".sub-men" th:each="categoryDto : ${categories}">
@@ -166,18 +159,6 @@
 
 <!-- End Shop Page -->
 
-<!-- Start Feed  -->
-<div th:replace="~{fragments::instagram-box}">
-
-</div>
-
-<!-- End Feed  -->
-
-
-<!-- Start Footer  -->
-<footer th:replace="~{fragments::footer}">
-
-</footer>
 
 
 <div th:replace="~{fragments::script}"></div>

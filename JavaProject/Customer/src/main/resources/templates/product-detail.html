@@ -49,12 +49,12 @@
                     <div class="single-product-details">
                         <h2 th:text="${productDetail.name}"></h2>
                         <h5 th:text="'$' + ${productDetail.costPrice}"></h5>
-                        <h4>Short Description:</h4>
+                        <h4>Mô tả:</h4>
                         <p th:text="${productDetail.description}"></p>
                         <div class="price-box-bar">
                             <div class="cart-and-bay-btn">
                                 <input type="hidden" th:value="${productDetail.id}" name="id" class="form-control">
-                                <input type="submit" class="btn hvr-hover" value="Add to cart">
+                                <input type="submit" class="btn hvr-hover" value="Thêm vào giỏ hàng">
                             </div>
                         </div>
                     </div>
@@ -62,56 +62,23 @@
             </div>
         </div>
     </div>
-
-    <div class="row my-5">
-        <div class="col-lg-12">
-            <div class="title-all text-center">
-                <h1>Related Products</h1>
-            </div>
-            <div class="featured-products-box owl-carousel owl-theme">
-                <div class="item" th:each="product : ${products}">
-                    <form th:action="@{/add-to-cart}" method="post">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <img th:src="'data:image/jpeg;base64,' + ${product.image}" class="img-fluid"
-                                     alt="Image">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a th:href="@{/product-detail/{id}(id = ${product.id})}"
-                                               data-toggle="tooltip"
-                                               data-placement="right"
-                                               title="View"><i class="fas fa-eye"></i></a></li>
-                                    </ul>
-                                    <input type="hidden" th:value="${product.id}" name="id" class="form-control">
-                                    <input type="submit" class="btn hvr-hover" value="Add to cart">
-                                </div>
-                            </div>
-                            <div class="why-text">
-                                <h4 th:text="${product.name}"></h4>
-                                <h5 th:text="'$' + ${product.costPrice}"></h5>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+<!--    comment-->
+    <div class="container">
+        <!--    comment-->
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" th:src="@{https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=950888472759774}" nonce="TtPwlGkD"></script>
+        <div class="fb-comments" th:data-href="@{https://developers.facebook.com/docs/plugins/comments#configurator}" data-width="" data-numposts="5"></div>
+        <!--    end comment-->
     </div>
+<!--    end comment-->
+
 
 </div>
 </div>
 
 <!-- End Cart -->
 
-<!-- Start Feed  -->
-<div th:replace="~{fragments::instagram-box}">
-</div>
 
-<!-- End Feed  -->
-
-
-<!-- Start Footer  -->
-<footer th:replace="~{fragments::footer}">
-</footer>
 
 <div th:replace="~{fragments::script}"></div>
 </body>

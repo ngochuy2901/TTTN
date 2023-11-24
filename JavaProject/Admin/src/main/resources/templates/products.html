@@ -30,13 +30,13 @@
                 <div class="container-fluid">
                     <div class="input-group" style="width: 30%; margin-bottom: 20px;">
                         <form th:action = "@{/search-products/0}" method = "get">
-                            <input type="text" class="form-control rounded" placeholder="Search" name = "keyword" aria-label="Search"
+                            <input type="text" class="form-control rounded" placeholder="Tìm kiếm sản phẩm" name = "keyword" aria-label="Search"
                                    aria-describedby="search-addon" />
-                            <button type="submit" class="btn btn-outline-primary">search</button>
+                            <button type="submit" class="btn btn-outline-primary">Tìm</button>
                         </form>
                     </div>
-                    <a th:href="@{/add-product}" class = "btn btn-primary">Add Product</a>
-                    <p th:if="${size == 0} ">No Products</p>
+                    <a th:href="@{/add-product}" class = "btn btn-primary">Thêm sản phẩm</a>
+                    <p th:if="${size == 0} ">Không có sản phẩm nào</p>
                     <div th:if = "${success}" class = "text-center alert alert-success">
                         <p th:text = "${success}"></p>
                     </div>
@@ -46,13 +46,13 @@
                     <table class="table table-bordered" th:if = "${size > 0}">
                         <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Update</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Tên</th>
+                            <th scope="col">Danh mục</th>
+                            <th scope="col">Giá cả</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Ảnh</th>
+                            <th scope="col">Cập nhật</th>
+                            <th scope="col">Hành động</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -70,13 +70,11 @@
                                 <a th:if="${product.deleted} == true" th:href="@{/enable-product(id = ${product.id})}"
                                    class="btn btn-primary">Enable</a>
                                 <a th:if="${product.deleted} == false" th:href="@{/delete-product(id = ${product.id})}"
-                                   class=" btn btn-danger">Delete</a>
+                                   class=" btn btn-danger">Xóa</a>
                             </td>
                         </tr>
                         </tbody>
                     </table>
-
-
                     <!--Pagination  -->
                     <nav aria-label="...">
                         <ul class="pagination" >
@@ -95,21 +93,12 @@
                     <!--Pagination  -->
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer th:replace = "~{fragments::footer}">
-            </footer>
-            <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
-
     </div>
     <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a th:replace = "~{fragments::scroll}">
     </a>

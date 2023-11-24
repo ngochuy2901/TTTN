@@ -5,70 +5,42 @@
 </head>
 
 <body>
-    <!-- Start Main Top -->
-    <div th:replace="~{fragments::main-top}">
 
-    </div>
-    <!-- End Main Top -->
 
-    <!-- Start Main Top -->
-    <header th:replace="~{fragments::main-header}" >
-    </header>
-    <!-- End Main Top -->
-
-    <!-- Start Top Search -->
-    <div th:replace="~{fragments::top-search}">
-    </div>
-    <!-- End Top Search -->
-
-    <!-- Start All Title Box -->
-    <div th:replace="~{fragments :: all-title-box}">
-    </div>
-    <!-- End All Title Box -->
-
-    <section id="login-form">
+    <section id="login-form" style="margin-top: 200px">
         <div class="noi-dung">
             <div class="form">
-                <h2>Log In</h2>
+                <h2>Đăng nhập</h2>
                 <div th:if = "${param.error}" class="alert alert-danger text-center">
-                    Invalid username or password
+                    Sai tài khoản hoặc mật khẩu
                 </div>
                 <div th:if = "${param.logout}" class="alert alert-success text-center">
                     You have been logged out!
                 </div>
                 <form th:action="@{/do-login}" method="post">
                     <div class="input-form">
-                        <input type="text" placeholder="Name" name="username" required>
+                        <input type="text" placeholder="Tài khoản" name="username" required>
                     </div>
                     <div class="input-form">
-                        <input type="password" placeholder="Password" name="password">
+                        <input type="password" placeholder="Mật khẩu" name="password">
                     </div>
                     <div class="input-form">
-                        <input type="submit" value="Log In">
+                        <input type="submit" value="Đăng nhập">
                     </div>
                     <div class="input-form">
-                        <p>Do You Already Have An Account ? <a th:href="@{/register}">Sign up now  </a></p>
+                        <p>Chưa có tài khoản? <a th:href="@{/register}">Đăng ký  </a></p>
                     </div>
                 </form>
-                <h3>Log In With Social Network</h3>
-                <ul class="icon-dang-nhap">
-                    <li><i class="fab fa-facebook-f"></i></i></li>
-                    <li><i class="fab fa-google"></i></li>
-                </ul>
+
             </div>
         </div>
 
     </section>
-  
+
     </section>
-    <!-- Start copyright  -->
-    <footer th:replace="~{fragments::footer}"></footer>
-    <!-- End copyright  -->
 
-    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 
-    <!-- ALL JS FILES -->
-    <div th:replace="~{fragments::script}"></div>
+
 </body>
 
 </html>

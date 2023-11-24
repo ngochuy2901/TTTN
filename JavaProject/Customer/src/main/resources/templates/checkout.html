@@ -27,10 +27,6 @@
 </div>
 <!-- End Top Search -->
 
-<!-- Start All Title Box -->
-<div th:replace="~{fragments::all-title-box}">
-</div>
-<!-- End All Title Box -->
 
 <!-- Start Cart  -->
 <div class="cart-box-main">
@@ -44,14 +40,14 @@
                     <form class="needs-validation" novalidate th:object="${customer}">
 
                         <div class="mb-3">
-                            <label for="username">Username *</label>
+                            <label for="username">Tài khoản *</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" th:field="*{username}" id="username"
                                        placeholder="" readonly>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="phone">Phone Number *</label>
+                            <label for="phone">Điện thoại *</label>
                             <input type="text" class="form-control" th:field="*{phoneNumber}" id="phone" placeholder=""
                                    readonly>
                         </div>
@@ -103,7 +99,7 @@
                                 <h2><b>Your order</b></h2>
                             </div>
                             <div class="d-flex">
-                                <div class="font-weight-bold">Product</div>
+                                <div class="font-weight-bold">Sản phẩm</div>
                                 <div class="ml-auto font-weight-bold">Total</div>
                             </div>
                             <hr class="my-1">
@@ -145,9 +141,7 @@
 <!-- End Feed  -->
 
 
-<!-- Start Footer  -->
-<footer th:replace="~{fragments::footer}">
-</footer>
+
 
 <div th:replace="~{fragments::script}"></div>
 </body>

@@ -40,10 +40,10 @@ public class CategoryController {
         try {
             categoryService.save(category);
             model.addAttribute("categoryNew", category);
-            redirectAttributes.addFlashAttribute("success", "Add successfully!");
+            redirectAttributes.addFlashAttribute("success", "Thêm thành công!");
         } catch (DataIntegrityViolationException e1) {
             e1.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Duplicate name of category, please check again!");
+            redirectAttributes.addFlashAttribute("error", "Tên danh mục bị trùng!");
         } catch (Exception e2) {
             e2.printStackTrace();
             model.addAttribute("categoryNew", category);
@@ -63,10 +63,10 @@ public class CategoryController {
     public String update(Category category, RedirectAttributes redirectAttributes) {
         try {
             categoryService.update(category);
-            redirectAttributes.addFlashAttribute("success", "Update successfully!");
+            redirectAttributes.addFlashAttribute("success", "Cập nhật thành công!");
         } catch (DataIntegrityViolationException e1) {
             e1.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Duplicate name of category, please check again!");
+            redirectAttributes.addFlashAttribute("error", "Tên danh mục bị trùng!");
         } catch (Exception e2) {
             e2.printStackTrace();
             redirectAttributes.addFlashAttribute("error", "Error from server or duplicate name of category, please check again!");
@@ -79,10 +79,10 @@ public class CategoryController {
     public String delete(Long id, RedirectAttributes redirectAttributes) {
         try {
             categoryService.deleteById(id);
-            redirectAttributes.addFlashAttribute("success", "Deleted successfully!");
+            redirectAttributes.addFlashAttribute("success", "Xóa danh mục thành công!");
         } catch (DataIntegrityViolationException e1) {
             e1.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Duplicate name of category, please check again!");
+            redirectAttributes.addFlashAttribute("error", "Tên danh mục bị trùng!");
         } catch (Exception e2) {
             e2.printStackTrace();
             redirectAttributes.addFlashAttribute("error", "Error server");
@@ -97,7 +97,7 @@ public class CategoryController {
             redirectAttributes.addFlashAttribute("success", "Enable successfully");
         } catch (DataIntegrityViolationException e1) {
             e1.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Duplicate name of category, please check again!");
+            redirectAttributes.addFlashAttribute("error", "Tên danh mục bị trùng!");
         } catch (Exception e2) {
             e2.printStackTrace();
             redirectAttributes.addFlashAttribute("error", "Error server");

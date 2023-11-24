@@ -37,7 +37,7 @@ public class ShoppingCartController {
             model.addAttribute("grandTotal", cart.getTotalPrice());
         }
         model.addAttribute("shoppingCart", cart);
-        model.addAttribute("title", "Cart");
+        model.addAttribute("title", "Giỏ hàng");
         session.setAttribute("totalItems", cart.getTotalItems());
         return "cart";
 

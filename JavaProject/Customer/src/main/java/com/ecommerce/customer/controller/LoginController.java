@@ -47,21 +47,21 @@ public class LoginController {
             Customer customer = customerService.findByUsername(username);
             if (customer != null) {
                 model.addAttribute("customerDto", customerDto);
-                model.addAttribute("error", "Email has been register!");
+                model.addAttribute("error", "Tài khoản đã được sử dụng!");
                 return "register";
             }
             if (customerDto.getPassword().equals(customerDto.getConfirmPassword())) {
                 customerDto.setPassword(passwordEncoder.encode(customerDto.getPassword()));
                 customerService.save(customerDto);
-                model.addAttribute("success", "Register successfully!");
+                model.addAttribute("success", "Đăng ký tài khoản thành công!");
             } else {
-                model.addAttribute("error", "Password is incorrect");
+                model.addAttribute("error", "Mật khẩu không khớp");
                 model.addAttribute("customerDto", customerDto);
                 return "register";
             }
         } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("error", "Server is error, try again later!");
+            model.addAttribute("error", "Đăng ký không thành công!");
         }
         return "register";
     }
