@@ -27,13 +27,13 @@ public class AuthController {
 
     @RequestMapping("/login")
     public String login(Model model) {
-        model.addAttribute("title", "Login Page");
+        model.addAttribute("title", "Đăng nhập");
         return "login";
     }
 
     @RequestMapping("/index")
     public String index(Model model) {
-        model.addAttribute("title", "Home Page");
+        model.addAttribute("title", "Trang chủ");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "redirect:/login";
@@ -43,14 +43,14 @@ public class AuthController {
 
     @GetMapping("/register")
     public String register(Model model) {
-        model.addAttribute("title", "Register");
+        model.addAttribute("title", "Đăng ký");
         model.addAttribute("adminDto", new AdminDto());
         return "register";
     }
 
     @GetMapping("/forgot-password")
     public String forgotPassword(Model model) {
-        model.addAttribute("title", "Forgot Password");
+        model.addAttribute("title", "Quên mật khẩu");
         return "forgot-password";
     }
 
@@ -70,23 +70,23 @@ public class AuthController {
             if (admin != null) {
                 model.addAttribute("adminDto", adminDto);
                 System.out.println("admin not null");
-                model.addAttribute("emailError", "Your email has been registered!");
+                model.addAttribute("emailError", "Tài khoản đã được sử dụng!");
                 return "register";
             }
             if (adminDto.getPassword().equals(adminDto.getRepeatPassword())) {
                 adminDto.setPassword(passwordEncoder.encode(adminDto.getPassword()));
                 adminService.save(adminDto);
                 System.out.println("success");
-                model.addAttribute("success", "Register successfully!");
+                model.addAttribute("success", "Đăng ký thành công!");
                 model.addAttribute("adminDto", adminDto);
             } else {
                 model.addAttribute("adminDto", adminDto);
-                model.addAttribute("passwordError", "Your password maybe wrong! Check again!");
-                System.out.println("password not same");
+                model.addAttribute("passwordError", "Mật khẩu không đúng!");
+                System.out.println("Mật khẩu không khớp");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("errors", "The server has been wrong!");
+            model.addAttribute("errors", "Lỗi!");
         }
         return "register";
 

@@ -34,7 +34,7 @@ public class OrderController {
         } else {
             CustomerDto customer = customerService.getCustomer(principal.getName());
             if (customer.getAddress() == null || customer.getCity() == null || customer.getPhoneNumber() == null) {
-                model.addAttribute("information", "You need update your information before check out");
+                model.addAttribute("information", "Cần cập nhật thông tin cá nhân trước khi thanh toán");
                 List<Country> countryList = countryService.findAll();
                 List<City> cities = cityService.findAll();
                 model.addAttribute("customer", customer);
@@ -46,8 +46,8 @@ public class OrderController {
             } else {
                 ShoppingCart cart = customerService.findByUsername(principal.getName()).getCart();
                 model.addAttribute("customer", customer);
-                model.addAttribute("title", "Check-Out");
-                model.addAttribute("page", "Check-Out");
+                model.addAttribute("title", "Thanh toán");
+                model.addAttribute("page", "Thanh toán");
                 model.addAttribute("shoppingCart", cart);
                 model.addAttribute("grandTotal", cart.getTotalItems());
                 return "checkout";
@@ -63,8 +63,8 @@ public class OrderController {
             Customer customer = customerService.findByUsername(principal.getName());
             List<Order> orderList = customer.getOrders();
             model.addAttribute("orders", orderList);
-            model.addAttribute("title", "Order");
-            model.addAttribute("page", "Order");
+            model.addAttribute("title", "Đơn hàng");
+            model.addAttribute("page", "Đơn hàng");
             return "order";
         }
     }
@@ -72,7 +72,7 @@ public class OrderController {
     @RequestMapping(value = "/cancel-order", method = {RequestMethod.PUT, RequestMethod.GET})
     public String cancelOrder(Long id, RedirectAttributes attributes) {
         orderService.cancelOrder(id);
-        attributes.addFlashAttribute("success", "Cancel order successfully!");
+        attributes.addFlashAttribute("success", "Hủy đơn hàng thành công!");
         return "redirect:/orders";
     }
 
@@ -89,9 +89,9 @@ public class OrderController {
             Order order = orderService.save(cart);
             session.removeAttribute("totalItems");
             model.addAttribute("order", order);
-            model.addAttribute("title", "Order Detail");
-            model.addAttribute("page", "Order Detail");
-            model.addAttribute("success", "Add order successfully");
+            model.addAttribute("title", "Chi tiết đơn hàng");
+            model.addAttribute("page", "Chi tiết đơn hàng");
+            model.addAttribute("success", "Thêm đơn hàng thành công");
             return "order-detail";
         }
     }

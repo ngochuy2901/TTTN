@@ -26,11 +26,6 @@
 </div>
 <!-- End Top Search -->
 
-<!-- Start All Title Box -->
-<div th:replace="~{fragments:: all-title-box}">
-</div>
-<!-- End All Title Box -->
-
 <!-- Start Shop Detail  -->
 <div class="shop-detail-box-main">
     <div class="container">
@@ -62,24 +57,24 @@
             </div>
         </div>
     </div>
-<!--    comment-->
-    <div class="container">
-        <!--    comment-->
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" th:src="@{https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=950888472759774}" nonce="TtPwlGkD"></script>
-        <div class="fb-comments" th:data-href="@{https://developers.facebook.com/docs/plugins/comments#configurator}" data-width="" data-numposts="5"></div>
-        <!--    end comment-->
-    </div>
-<!--    end comment-->
-
-
 </div>
 </div>
 
 <!-- End Cart -->
 
 
-
+<!--    comment-->
+<div class="container" style="position: absolute !important;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 550px;">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=950888472759774" nonce="OUEqLQKj"></script>
+    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
+</div>
+<!--    end comment-->
 <div th:replace="~{fragments::script}"></div>
 </body>
 

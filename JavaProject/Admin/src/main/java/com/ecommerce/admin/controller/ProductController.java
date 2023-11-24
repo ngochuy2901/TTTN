@@ -106,7 +106,7 @@ public class ProductController {
         }
         List<Category> categories = categoryService.findAllByActivatedTrue();
         ProductDto productDto = productService.getById(id);
-        model.addAttribute("title", "Add Product");
+        model.addAttribute("title", "Thêm sản phẩm");
         model.addAttribute("categories", categories);
         model.addAttribute("productDto", productDto);
         return "update-product";
@@ -124,7 +124,7 @@ public class ProductController {
             redirectAttributes.addFlashAttribute("success", "Cập nhật thành công!");
         } catch (Exception e) {
             e.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Error server!");
+            redirectAttributes.addFlashAttribute("error", "Lỗi!");
         }
         return "redirect:/products/0";
     }
@@ -136,10 +136,10 @@ public class ProductController {
                 return "redirect:/login";
             }
             productService.enableById(id);
-            redirectAttributes.addFlashAttribute("success", "Enabled successfully!");
+            redirectAttributes.addFlashAttribute("success", "Thành công!");
         } catch (Exception e) {
             e.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Enabled failed!");
+            redirectAttributes.addFlashAttribute("error", "Lỗi!");
         }
         return "redirect:/products/0";
     }

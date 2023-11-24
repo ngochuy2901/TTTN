@@ -19,16 +19,16 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model) {
-        model.addAttribute("title", "Login Page");
-        model.addAttribute("page", "Home");
+        model.addAttribute("title", "Đăng nhập");
+        model.addAttribute("page", "Trang chủ");
         return "login";
     }
 
 
     @GetMapping("/register")
     public String register(Model model) {
-        model.addAttribute("title", "Register");
-        model.addAttribute("page", "Register");
+        model.addAttribute("title", "Đăng ký");
+        model.addAttribute("page", "Đăng ký");
         model.addAttribute("customerDto", new CustomerDto());
         return "register";
     }

@@ -25,11 +25,6 @@
 </div>
 <!-- End Top Search -->
 
-<!-- Start All Title Box -->
-<div th:replace="~{fragments::all-title-box}">
-</div>
-<!-- End All Title Box -->
-
 <!-- Update Personal Information -->
 <div class="cart-box-main">
     <div class="container">
@@ -42,14 +37,14 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="order-date">Order Date</th>
+                            <th class="order-date">Ngày đặt hàng</th>
                             <th>Delivery Date</th>
-                            <th class="price-pr">Order Status</th>
+                            <th class="price-pr">Trạng thái</th>
 
-                            <th class="quantity-box">Quantity</th>
-                            <th>Total Price</th>
-                            <th class="total-pr">Payment Method</th>
-                            <th>Action</th>
+                            <th class="quantity-box">Số lượng</th>
+                            <th>Tổng tiền</th>
+                            <th class="total-pr">Phương thức thanh toán</th>
+                            <th>Lựa chọn</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -61,7 +56,7 @@
                                 <a th:if = "${order.accept != null}" href="#">
                                     [(${order.deliveryDate})]
                                 </a>
-                                <a th:if = "${order.accept == null}"><p>Pending</p> </a>
+                                <a th:if = "${order.accept == null}"><p>Đang chờ</p> </a>
                             </td>
                             <td class="price-pr">
                                 <p th:text="${order.orderStatus}"></p>
@@ -74,7 +69,7 @@
                                 <span></span>[(${order.paymentMethod})]</span>
                             </td>
                             <td>
-                                <a th:href="@{/cancel-order/(id = ${order.id})}" class="button-cancel">Cancel</a>
+                                <a th:href="@{/cancel-order/(id = ${order.id})}" class="button-cancel">Thoát</a>
                             </td>
                             </a>
                             </td>
@@ -86,11 +81,6 @@
         </div>
     </div>
 </div>
-
-<footer th:replace="~{fragments::footer}"></footer>
-
-<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
-
 <!-- ALL JS FILES -->
 <div th:replace="~{fragments::script}"></div>
 </body>

@@ -25,7 +25,7 @@ public class ProductController {
     @GetMapping("/menu")
     public String menu(Model model) {
         model.addAttribute("page", "Sản phẩm");
-        model.addAttribute("title", "Menu");
+        model.addAttribute("title", "Danh sách sản phẩm");
         List<Category> categories = categoryService.findAllByActivatedTrue();
         List<ProductDto> products = productService.products();
         model.addAttribute("products", products);
@@ -39,8 +39,8 @@ public class ProductController {
         ProductDto product = productService.getById(id);
         List<ProductDto> productDtoList = productService.findAllByCategory(product.getCategory().getName());
         model.addAttribute("products", productDtoList);
-        model.addAttribute("title", "Product Detail");
-        model.addAttribute("page", "Product Detail");
+        model.addAttribute("title", "Chi tiết sản phẩm");
+        model.addAttribute("page", "Chi tiết sản phẩm");
         model.addAttribute("productDetail", product);
         return "product-detail";
     }
@@ -52,8 +52,8 @@ public class ProductController {
         List<ProductDto> products = productService.randomProduct();
         List<ProductDto> listView = productService.listViewProducts();
         model.addAttribute("productViews", listView);
-        model.addAttribute("title", "Shop Detail");
-        model.addAttribute("page", "Shop Detail");
+        model.addAttribute("title", "Chi tiết cửa hàng");
+        model.addAttribute("page", "Chi tiết cửa hàng");
         model.addAttribute("products", products);
         return "shop-detail";
     }

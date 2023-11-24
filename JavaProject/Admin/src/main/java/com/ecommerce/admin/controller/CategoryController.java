@@ -69,7 +69,7 @@ public class CategoryController {
             redirectAttributes.addFlashAttribute("error", "Tên danh mục bị trùng!");
         } catch (Exception e2) {
             e2.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Error from server or duplicate name of category, please check again!");
+            redirectAttributes.addFlashAttribute("error", "Lỗi!");
         }
         return "redirect:/categories";
     }
@@ -100,7 +100,7 @@ public class CategoryController {
             redirectAttributes.addFlashAttribute("error", "Tên danh mục bị trùng!");
         } catch (Exception e2) {
             e2.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Error server");
+            redirectAttributes.addFlashAttribute("error", "Lỗi");
         }
         return "redirect:/categories";
     }

@@ -45,7 +45,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="login-box">
                     <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In" onchange="location = this.value;">
-                        <option>Authentication</option>
+                        <option>Tài khoản</option>
                         <option th:if = "${session.username == null}" value = "http://localhost:8020/shop/login">Đăng nhập</option>
                         <option th:if = "${session.username == null}" value ="http://localhost:8020/shop/register">Đăng ký</option>
                     </select>
@@ -81,9 +81,9 @@
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Cửa hàng</a>
                         <ul class="dropdown-menu">
-                            <li><a th:href="@{/shop-detail}">Shop Detail</a></li>
-                            <li><a th:href="@{/orders}">Your order</a></li>
-                            <li><a th:href="@{/profile}">My Account</a></li>
+<!--                            <li><a th:href="@{/shop-detail}">Shop Detail</a></li>-->
+                            <li><a th:href="@{/orders}">Đơn hàng</a></li>
+                            <li><a th:href="@{/profile}">Thông tin cá nhân</a></li>
                         </ul>
                     </li>
 
@@ -100,7 +100,7 @@
                             <i class="fa fa-shopping-bag"></i>
                             <span class="badge"
                                   th:text="${session.totalItems == null} ? '0' : ${session.totalItems}"></span>
-                            <p>My Cart</p>
+                            <p>Giỏ hàng</p>
                         </a>
                     </li>
                 </ul>

@@ -41,8 +41,8 @@ public class CustomerController {
         model.addAttribute("customer", customer);
         model.addAttribute("cities", cities);
         model.addAttribute("countries", countryList);
-        model.addAttribute("title", "Profile");
-        model.addAttribute("page", "Profile");
+        model.addAttribute("title", "Thông tin cá nhân");
+        model.addAttribute("page", "Thông tin cá nhân");
         return "customer-information";
 
     }
@@ -67,7 +67,7 @@ public class CustomerController {
         }
         customerService.update(customerDto);
         CustomerDto customerUpdate = customerService.getCustomer(principal.getName());
-        attributes.addFlashAttribute("success", "Update successfully!");
+        attributes.addFlashAttribute("success", "Cập nhât thành công!");
         model.addAttribute("customer", customerUpdate);
         return "redirect:/profile";
 
@@ -78,8 +78,8 @@ public class CustomerController {
         if (principal == null) {
             return "redirect:/login";
         }
-        model.addAttribute("title", "Change password");
-        model.addAttribute("page", "Change password");
+        model.addAttribute("title", "Đổi mật khẩu");
+        model.addAttribute("page", "Đổi mật khẩu");
         return "change-password";
     }
 
@@ -100,10 +100,10 @@ public class CustomerController {
                     && repeatPassword.equals(newPassword) && newPassword.length() >= 5) {
                 customer.setPassword(passwordEncoder.encode(newPassword));
                 customerService.changePass(customer);
-                attributes.addFlashAttribute("success", "Your password has been changed successfully!");
+                attributes.addFlashAttribute("success", "Đổi mật khẩu thành công!");
                 return "redirect:/profile";
             } else {
-                model.addAttribute("message", "Your password is wrong");
+                model.addAttribute("message", "Mật khẩu không chính xác");
                 return "change-password";
             }
         }
