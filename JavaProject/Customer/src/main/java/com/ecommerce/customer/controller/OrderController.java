@@ -40,8 +40,8 @@ public class OrderController {
                 model.addAttribute("customer", customer);
                 model.addAttribute("cities", cities);
                 model.addAttribute("countries", countryList);
-                model.addAttribute("title", "Profile");
-                model.addAttribute("page", "Profile");
+                model.addAttribute("title", "Thông tin cá nhân");
+                model.addAttribute("page", "Thông tin cá nhân");
                 return "customer-information";
             } else {
                 ShoppingCart cart = customerService.findByUsername(principal.getName()).getCart();

@@ -38,9 +38,8 @@
                         <thead>
                         <tr>
                             <th class="order-date">Ngày đặt hàng</th>
-                            <th>Delivery Date</th>
-                            <th class="price-pr">Trạng thái</th>
 
+                            <th class="price-pr">Trạng thái</th>
                             <th class="quantity-box">Số lượng</th>
                             <th>Tổng tiền</th>
                             <th class="total-pr">Phương thức thanh toán</th>
@@ -69,7 +68,7 @@
                                 <span></span>[(${order.paymentMethod})]</span>
                             </td>
                             <td>
-                                <a th:href="@{/cancel-order/(id = ${order.id})}" class="button-cancel">Thoát</a>
+                                <a th:href="@{/cancel-order/(id = ${order.id})}" class="button-cancel">Hủy đặt hàng/a>
                             </td>
                             </a>
                             </td>

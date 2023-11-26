@@ -61,20 +61,14 @@
                             <a th:if="${order.accept} != false"  th:href="@{/cancel-order(id = ${order.id})}"
                                class="btn btn-primary">Cancel</a>
                             <a th:if="${order.accept} == false" th:href="@{/accept-order(id = ${order.id})}"
-                               class=" btn btn-secondary">Accept</a>
+                               class=" btn btn-secondary">Chấp nhận</a>
                         </td>
                         </a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
-
                 <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <footer th:replace="~{fragments::footer}"></footer>
-                <!-- End of Footer -->
-
             </div>
             <!-- End of Content Wrapper -->
 

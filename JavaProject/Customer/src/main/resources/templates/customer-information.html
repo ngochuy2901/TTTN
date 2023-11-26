@@ -75,7 +75,7 @@
             <div class="inputDiv">
                 <label class="inputLabel" for="phoneNumber">SĐT</label>
                 <input type="number" th:field="*{phoneNumber}"
-                       th:placeholder="${customer.phoneNumber != null} ? ${customer.phoneNumber} : 'Enter your phone number'"
+                       th:placeholder="${customer.phoneNumber != null} ? ${customer.phoneNumber} : 'Số điện thoại'"
                        id="phoneNumber" name="phonenumber" maxlength="15" minlength="10">
             </div>
             <div class="alert alert-warning"
@@ -84,7 +84,7 @@
             <div class="inputDiv">
                 <label class="inputLabel" for="address">Địa chỉ</label>
                 <input type="text" th:field="*{address}"
-                       th:placeholder="${customer.address != null} ? ${customer.address} : 'Enter your address'"
+                       th:placeholder="${customer.address != null} ? ${customer.address} : 'Địa chỉ'"
                        id="address" name="address">
             </div>
             <div class="inputDiv">
