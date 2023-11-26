@@ -47,26 +47,10 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.findById(id);
     }
 
-//    @Override
-//    public void deleteById(Long id) {
-//        Category category = categoryRepository.getById(id);
-//        category.setActivated(false);
-//        category.setDeleted(true);
-//        categoryRepository.save(category);
-//    }
     @Override
     public void deleteById(Long id) {
         Category category = categoryRepository.getById(id);
-        category.setActivated(false);
-        category.setDeleted(true);
         categoryRepository.delete(category);
-    }
-    @Override
-    public void enableById(Long id) {
-        Category category = categoryRepository.getById(id);
-        category.setActivated(true);
-        category.setDeleted(false);
-        categoryRepository.save(category);
     }
 
     @Override

@@ -90,20 +90,5 @@ public class CategoryController {
         return "redirect:/categories";
     }
 
-    @RequestMapping(value = "/enable-category", method = {RequestMethod.PUT, RequestMethod.GET})
-    public String enable(Long id, RedirectAttributes redirectAttributes) {
-        try {
-            categoryService.enableById(id);
-            redirectAttributes.addFlashAttribute("success", "Enable successfully");
-        } catch (DataIntegrityViolationException e1) {
-            e1.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Tên danh mục bị trùng!");
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Lỗi");
-        }
-        return "redirect:/categories";
-    }
-
 
 }

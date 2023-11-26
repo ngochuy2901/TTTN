@@ -18,8 +18,6 @@ public interface ProductService {
 
     Product update(MultipartFile imageProduct, ProductDto productDto);
 
-    void enableById(Long id);
-
     void deleteById(Long id);
 
     ProductDto getById(Long id);

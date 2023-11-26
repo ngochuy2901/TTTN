@@ -135,7 +135,7 @@ public class ProductController {
             if (principal == null) {
                 return "redirect:/login";
             }
-            productService.enableById(id);
+            productService.deleteById(id);
             redirectAttributes.addFlashAttribute("success", "Thành công!");
         } catch (Exception e) {
             e.printStackTrace();
