@@ -37,7 +37,7 @@ public class OrderController {
             return "redirect:/login";
         } else {
             orderService.acceptOrder(id);
-            attributes.addFlashAttribute("success", "Order Accepted");
+            attributes.addFlashAttribute("success", "Xác nhận đơn hàng");
             return "redirect:/orders";
         }
     }
