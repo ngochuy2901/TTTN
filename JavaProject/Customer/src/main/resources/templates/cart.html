@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <!-- Basic -->
-
 <head th:replace="~{fragments::head}">
-
-
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
-
 <body>
 <!-- Start Main Top -->
 <div th:replace="~{fragments::main-top}">
@@ -37,7 +32,7 @@
             <div class="col-lg-12">
                 <div class="table-main table-responsive">
                     <p class="text-center" th:if="${check}"><i class="text-info font-weight-bold text-center"></i>
-                        You don't have any items in your cart</p>
+                        Giỏ hàng trống</p>
                     <table class="table" th:if="${grandTotal}">
                         <thead>
                         <tr>
@@ -61,7 +56,7 @@
                                 <p th:text="${cartItem.product.name}"></p>
                             </td>
                             <td class="price-pr">
-                                <p th:text="'$' + ${cartItem.unitPrice}"></p>
+                                <p th:text="${cartItem.unitPrice} + 'VNĐ'"></p>
                             </td>
                             <form th:action="@{/update-cart}" method="post">
                                 <input type = "hidden" name = "id" th:value = "${cartItem.product.id}" >
@@ -71,7 +66,7 @@
                                            class="c-input-text qty text">
                                 </td>
                                 <td class="total-pr">
-                                    <p th:text="'$' + ${cartItem.unitPrice * cartItem.quantity}"></p>
+                                    <p th:text="${cartItem.unitPrice * cartItem.quantity} + 'VNĐ'"></p>
                                 </td>
                                 <td>
                                     <button type="submit" name="action" value="update" title="Update"
@@ -90,7 +85,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row my-5" th:if = "${grandTotal}">
             <div class="col-lg-8 col-sm-12"></div>
             <div class="col-lg-4 col-sm-12">
@@ -105,7 +99,7 @@
 <!--                    <hr>-->
                     <div class="d-flex gr-total">
                         <h5>Tổng tiền cần thanh toán</h5>
-                        <div class="ml-auto h5" th:text="'$' + ${grandTotal}"></div>
+                        <div class="ml-auto h5" th:text="${grandTotal} + 'VNĐ' "></div>
                     </div>
                     <hr>
                 </div>
@@ -116,8 +110,6 @@
     </div>
 </div>
 <!-- End Cart -->
-
 <div th:replace="~{fragments::script}"></div>
 </body>
-
 </html>

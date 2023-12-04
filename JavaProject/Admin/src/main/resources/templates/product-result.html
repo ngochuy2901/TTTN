@@ -57,7 +57,7 @@
                                 <img class = "my-product-image" style="height: 40px; width: 40px;" alt=""
                                      th:src="'data:image/jpeg;base64,' + ${product.image}">
                             </td>
-                            <td><a th:href="@{/update-product/{id}(id= ${product.id})}" class="btn btn-primary">Update</a></td>
+                            <td><a th:href="@{/update-product/{id}(id= ${product.id})}" class="btn btn-primary">Cập nhật</a></td>
                             <td>
                                 <a th:if="${product.deleted} == true" th:href="@{/enable-product/(id = ${product.id})}"
                                    class="btn btn-primary">Enable</a>
@@ -91,9 +91,6 @@
         <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
-    <!-- Scroll to Top Button-->
-    <a th:replace = "~{fragments::scroll}">
-    </a>
     <!-- Bootstrap core JavaScript-->
     <div th:replace = "~{fragments::script}"></div>
 </body>

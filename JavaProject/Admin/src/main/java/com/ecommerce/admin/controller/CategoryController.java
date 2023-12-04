@@ -43,7 +43,7 @@ public class CategoryController {
             redirectAttributes.addFlashAttribute("success", "Thêm thành công!");
         } catch (DataIntegrityViolationException e1) {
             e1.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Tên danh mục bị trùng!");
+            redirectAttributes.addFlashAttribute("error", "Không thể xóa! Xóa các sản phẩm có trong danh mục trước");
         } catch (Exception e2) {
             e2.printStackTrace();
             model.addAttribute("categoryNew", category);
@@ -66,7 +66,7 @@ public class CategoryController {
             redirectAttributes.addFlashAttribute("success", "Cập nhật thành công!");
         } catch (DataIntegrityViolationException e1) {
             e1.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Tên danh mục bị trùng!");
+            redirectAttributes.addFlashAttribute("error", "Không thể cập nhật danh mục!");
         } catch (Exception e2) {
             e2.printStackTrace();
             redirectAttributes.addFlashAttribute("error", "Lỗi!");
